@@ -1,3 +1,4 @@
+package hust.soict.ict;
 
 public class TestPassingParameter {
     public static void main(String[] args) {

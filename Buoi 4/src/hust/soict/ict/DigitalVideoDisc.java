@@ -1,4 +1,6 @@
-public class DigitalVideoDisc extends Disc {
+package hust.soict.ict;
+
+public class DigitalVideoDisc extends Disc implements Playable{
     private String title;
     private String category;
     private String director;
@@ -25,7 +27,7 @@ public class DigitalVideoDisc extends Disc {
         return director;
     }
 
-    public void setDirector(String di   rector) {
+    public void setDirector(String director) {
         this.director = director;
     }
 
@@ -73,4 +75,14 @@ public class DigitalVideoDisc extends Disc {
     }
 
 
+    @Override
+    public void play() {
+        System.out.println("Playing DVD: " + this.getTitle());
+        System.out.println("DVD length: " + this.getLength());
+    }
+
+    @Override
+    public String toString() {
+        return "title: " + this.getTitle() + ", category: " + this.getCategory() + ", director: " + this.getDirector() + ", length: " + this.getLength();
+    }
 }

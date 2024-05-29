@@ -1,6 +1,9 @@
-import java.util.ArrayList;
+package hust.soict.ict;
 
-public class CompactDisc extends Disc{
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+
+public class CompactDisc extends Disc implements Playable{
     private String artist;
     private ArrayList<Track> tracks = new ArrayList<Track>();
 
@@ -21,32 +24,30 @@ public class CompactDisc extends Disc{
         return false;
     }
     public void removeAuthor (Track track){
-        tracks = tracks.stream().filter(c ->!c.equals(track)).collect(Collectors.toList());
+        tracks = (ArrayList<Track>) tracks.stream().filter(c ->!c.equals(track)).collect(Collectors.toList());
 
     }
     public void play(){
-        System.out.println("Playing CD: "+this.getTitle()); System.out.println("CD length: "+this.getLength()); System.out.println("....
+        System.out.println("Playing CD: "+ this.getTitle());
+        System.out.println("CD length: " + this.getLength());
+        System.out.println("....");
         for (Track track : tracks) {
-            System.out.println(".
-                            .");
-                            .");
-                    track.play();
+            track.play();
+            System.out.println(". . .");
         }
     }
-    public String toString(){
-        return id + ". CD - "+this.getTitle() +
-                +this.getCategory() +
-                +this.getDirector() +
-                +this.getLength() +
-: "+this.getCost() + "$" + tracks.stream().map(Track::toString).reduce("",(i,j)->i+"\n"+j);
-    }
-    public void addTrack (Track track){
+
+    public void addTrack(Track track){
         if (!tracks.contains(track)){
             tracks.add(track);
         }
     }
-    public void removeTrack (Track track){
+    public void removeTrack(Track track){
         tracks.remove(track);
     }
-}
+
+    @Override
+    public String toString() {
+        return "title: " + this.getTitle() + " artist: " + this.getArtist() + " tracks: " + tracks;
+    }
 }

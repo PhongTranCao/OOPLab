@@ -1,4 +1,16 @@
+package hust.soict.ict;
+
+import hust.soict.ict.aims.media.Media;
+
 public class Disc extends Media {
+
+    public Disc() {
+    }
+
+    public Disc(String s) {
+        this.setTitle(s);
+    }
+
     public int getLength() {
         return length;
     }

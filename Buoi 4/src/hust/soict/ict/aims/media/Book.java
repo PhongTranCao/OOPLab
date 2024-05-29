@@ -1,6 +1,8 @@
+package hust.soict.ict.aims.media;
+
 import java.util.ArrayList;
 
-public class Book extends Media{
+public class Book extends Media {
     private int id;
     private String title;
     private String category;
@@ -62,5 +64,10 @@ public class Book extends Media{
             }
         }
         System.out.println("The author is not in the list.");
+    }
+
+    @Override
+    public String toString() {
+        return "title: " + title + ", authors: " + authors + ", cost: " + cost + ", id: " + id;
     }
 }
