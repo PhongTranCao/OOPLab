@@ -1,4 +1,4 @@
-package hust.soict.ict;
+package hust.soict.ict.store;
 
 import hust.soict.ict.aims.media.Media;
 
@@ -8,13 +8,17 @@ public class Store extends Media {
     public static final int MAX_NUMBERS_ORDERED = 20;
     private final ArrayList<Media> itemOrdered = new ArrayList<Media>();
 
-    void addMedia(Media media){
+    public void addMedia(Media media){
         itemOrdered.add(media);
-        System.out.println("hust.soict.ict.Disc is added");
+        System.out.println("Disc is added");
     }
 
-    void removeMedia(Media disc)
+    public void removeMedia(Media disc)
     {
         itemOrdered.remove(disc);
+    }
+
+    public ArrayList<Media> getItemOrdered(){
+        return itemOrdered;
     }
 }
