@@ -1,16 +1,20 @@
 package hust.soict.ict;
 
 import hust.soict.ict.aims.media.Media;
+import javafx.beans.InvalidationListener;
+import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
-    private final ArrayList<Media> itemOrdered = new ArrayList<Media>();
+    private final ObservableList<Media> itemOrdered = FXCollections.observableArrayList();
 
     public void addMedia(Media media){
         itemOrdered.add(media);
-        System.out.println("hust.soict.ict.Disc is added");
+        System.out.println("Disc is added");
     }
 
     void totalCost()
@@ -67,8 +71,12 @@ public class Cart {
         }
     }
 
-    public ArrayList<Media> getItemsOrdered(){
+    public ObservableList<Media> getItemsOrdered(){
         return itemOrdered;
     }
-
+    public ObservableList<String> getItemsOrderedInString(){
+        ObservableList<String> observableList = FXCollections.observableArrayList();
+        for (Media item : itemOrdered) observableList.add(item.toString());
+        return observableList;
+    }
 }

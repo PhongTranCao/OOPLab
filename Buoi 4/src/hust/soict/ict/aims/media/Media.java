@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 public abstract class Media {
     protected int id;
-    protected String title;
+    protected String title = " ";
     protected String category;
     protected float cost;
 
@@ -43,6 +43,7 @@ public abstract class Media {
     @Override
     public boolean equals(Object obj) {
         Media media = (Media) obj;
+        if (media == null) return false;
         return title.equals(media.getTitle());
     }
 
